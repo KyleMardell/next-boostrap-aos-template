@@ -1,16 +1,17 @@
 import styles from "./page.module.css";
-import { generateMetadata } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/metadata";
+import site from "@/lib/site-config.json";
 
-export const metadata = generateMetadata({
+export const metadata = createPageMetadata({
     title: "Home",
     description:
-        "Welcome to Client Business Name – professional services for your needs.",
-    url: "https://yourdomain.com",
+        `Welcome to ${site.businessName} – professional services for your needs.`,
+    path: "/",
 });
 
 export default function Home() {
     return (
-        <main className={`container ${styles.home}`}>
+        <main id="main-content" tabIndex={-1} className={`container ${styles.home}`}>
             {/* Hero Section */}
             <section className="text-center" data-aos="fade-up">
                 <h1>Hello World</h1>

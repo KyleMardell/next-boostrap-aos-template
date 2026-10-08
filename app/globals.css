@@ -1,90 +1,137 @@
-/* Reset and base styles */
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+:root {
+    --site-bg: #0f0f0f;
+    --site-text: #f5f5f5;
+    --site-heading: #ffffff;
+    --site-muted: #cccccc;
+    --site-footer-bg: #1a1a1a;
+    --site-surface: #1e1e1e;
+    --site-border: #777777;
+    --site-placeholder: #aaaaaa;
+    --site-link: #63b3ed;
+    --site-link-hover: #90cdf4;
+    --site-primary: #1268b3;
+    --site-primary-hover: #0c548f;
+    --site-primary-text: #ffffff;
+    --site-focus: #ffd166;
 }
 
 html {
-    max-width: 100vw;
-    overflow-x: hidden;
-    scroll-behavior: smooth; /* smooth scrolling */
+    scroll-behavior: smooth;
 }
 
-/* Dark theme base */
 body {
-    background-color: #0f0f0f;
-    color: #f5f5f5;
-    font-family:
-        "Roboto",
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+    background-color: var(--site-bg);
+    color: var(--site-text);
     line-height: 1.6;
 }
 
-/* Headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: #ffffff;
+h1, h2, h3, h4, h5, h6 {
+    color: var(--site-heading);
     font-weight: 500;
     line-height: 1.2;
     margin-bottom: 1rem;
 }
 
-/* Links */
 a {
-    color: #1e90ff; /* bright blue */
-    text-decoration: none;
+    color: var(--site-link);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
     transition: color 0.2s ease-in-out;
 }
 
 a:hover {
-    color: #63b3ed;
+    color: var(--site-link-hover);
+}
+
+:focus-visible {
+    outline: 3px solid var(--site-focus) !important;
+    outline-offset: 4px;
+}
+
+main {
+    scroll-margin-top: 6rem;
+}
+
+main:focus {
+    outline: none;
+}
+
+.skip-link {
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 1100;
+    padding: 0.75rem 1rem;
+    background: var(--site-bg);
+    color: var(--site-text);
+    transform: translateY(-200%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+.navbar .nav-link[aria-current="page"] {
     text-decoration: underline;
+    text-underline-offset: 0.3em;
+    font-weight: 700;
 }
 
-/* Buttons */
-button {
-    font-family: inherit;
-    background-color: #1e1e1e;
-    color: #f5f5f5;
-    border: 1px solid #444;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition:
-        background-color 0.2s ease,
-        transform 0.1s ease;
-    user-select: none;
+/* Mobile links stay available when JavaScript is unavailable. */
+html:not(.navigation-ready) .navbar-collapse {
+    display: block;
 }
 
-button:hover {
-    background-color: #2a2a2a;
-    transform: translateY(-1px);
+html:not(.navigation-ready) .navbar-toggler {
+    display: none;
 }
 
-/* Images */
+.btn-primary {
+    --bs-btn-bg: var(--site-primary);
+    --bs-btn-border-color: var(--site-primary);
+    --bs-btn-color: var(--site-primary-text);
+    --bs-btn-hover-bg: var(--site-primary-hover);
+    --bs-btn-hover-border-color: var(--site-primary-hover);
+    --bs-btn-hover-color: var(--site-primary-text);
+    --bs-btn-active-bg: var(--site-primary-hover);
+    --bs-btn-active-border-color: var(--site-primary-hover);
+    --bs-btn-active-color: var(--site-primary-text);
+    --bs-btn-disabled-bg: var(--site-primary);
+    --bs-btn-disabled-border-color: var(--site-primary);
+    --bs-btn-disabled-color: var(--site-primary-text);
+}
+
 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-/* Sections spacing helper */
 section {
     padding: 60px 0;
 }
 
-/* Container override for nicer spacing */
-.container {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 1rem;
+/* AOS must never hide content before successful initialisation or keyboard focus. */
+html:not(.aos-ready) [data-aos],
+[data-aos]:focus-within {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }

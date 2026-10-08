@@ -1,0 +1,25 @@
+{
+  "businessName": "Client Business Name",
+  "siteUrl": "https://yourdomain.com",
+  "description": "Professional services offered by Client Business Name.",
+  "socialImage": null,
+  "contact": {
+    "email": "info@clientbusiness.com",
+    "phone": "+44 1234 567890",
+    "address": "123 Business Street, City, Postcode"
+  },
+  "navigation": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
+  ],
+  "credit": {
+    "label": "Website by KM Web",
+    "href": "https://kmweb.co.uk"
+  }
+}

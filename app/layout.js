@@ -5,6 +5,8 @@ import "./globals.css";
 import AOSProvider from "../components/AOSProvider";
 import SiteNavbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import site from "@/lib/site-config.json";
+import { createPageMetadata } from "@/lib/metadata";
 
 const roboto = Roboto({
     subsets: ["latin"],
@@ -13,23 +15,21 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-    title: {
-        default: "Client Business Name",
-        template: "%s | Client Business Name",
-    },
-    description: "Professional services offered by Client Business Name.",
-    keywords: ["service", "business", "local services"],
+    ...createPageMetadata(),
+    metadataBase: new URL(site.siteUrl),
+    title: { default: site.businessName, template: `%s | ${site.businessName}` },
 };
 
 export default function RootLayout({ children }) {
     return (
         <html lang="en" data-bs-theme="dark">
             <body className={roboto.className}>
+                <a className="skip-link" href="#main-content">Skip to main content</a>
                 <AOSProvider>
                     <SiteNavbar />
                     {children}
                     <Footer />
-                    </AOSProvider>
+                </AOSProvider>
             </body>
         </html>
     );

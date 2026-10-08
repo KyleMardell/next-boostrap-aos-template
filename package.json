@@ -1,25 +1,28 @@
 {
-  "name": "astrahr",
+  "name": "next-bootstrap-aos-template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "postbuild": "next-sitemap",
-    "start": "next start",
+    "start": "node scripts/preview.mjs",
     "lint": "eslint"
   },
   "dependencies": {
     "aos": "^2.3.4",
     "bootstrap": "^5.3.8",
-    "next": "16.1.6",
-    "next-sitemap": "^4.2.3",
-    "react": "19.2.3",
+    "next": "16.4.0",
+    "react": "19.3.0",
     "react-bootstrap": "^2.10.10",
-    "react-dom": "19.2.3"
+    "react-dom": "19.3.0"
   },
   "devDependencies": {
     "eslint": "^9",
-    "eslint-config-next": "16.1.6"
+    "eslint-config-next": "16.4.0",
+    "next-sitemap": "^4.2.3"
+  },
+  "engines": {
+    "node": "^22.13.0 || >=24.0.0"
   }
 }

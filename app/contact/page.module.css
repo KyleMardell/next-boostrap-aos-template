@@ -14,22 +14,16 @@
     line-height: 1.6;
 }
 
-.contact form .form-control {
-    background-color: #1e1e1e;
-    border: 1px solid #444;
-    color: #f5f5f5;
+.contact form :global(.form-control) {
+    background-color: var(--site-surface);
+    border-color: var(--site-border);
+    color: var(--site-text);
 }
 
-.contact form .form-control::placeholder {
-    color: #888;
+.contact form :global(.form-control)::placeholder {
+    color: var(--site-placeholder);
 }
 
-.contact form .btn-primary {
-    background-color: #1e90ff;
-    border-color: #1e90ff;
-}
-
-.contact form .btn-primary:hover {
-    background-color: #63b3ed;
-    border-color: #63b3ed;
+.contact form :global(.form-control):focus {
+    border-color: var(--site-focus);
 }

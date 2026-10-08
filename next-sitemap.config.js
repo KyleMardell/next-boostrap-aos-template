@@ -1,9 +1,11 @@
+const site = require("./lib/site-config.json");
+
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-    siteUrl: "https://yourdomain.com",
+    siteUrl: site.siteUrl,
+    outDir: "out",
     generateRobotsTxt: true,
-    sitemapSize: 7000,
-    robotsTxtOptions: {
-        additionalSitemaps: ["https://yourdomain.com/sitemap.xml"],
-    },
+    generateIndexSitemap: false,
+    autoLastmod: false,
+    exclude: ["/404", "/500", "/_not-found"],
 };

@@ -1,18 +1,18 @@
 .footer {
-    background-color: #1a1a1a;
-    color: #ccc;
+    background-color: var(--site-footer-bg);
+    color: var(--site-muted);
     padding: 2rem 1rem 0.4rem 1rem;
     font-size: 0.9rem;
 }
 
 .footer a {
-    color: #ccc;
-    text-decoration: none;
+    color: var(--site-muted);
+    text-decoration: underline;
     transition: color 0.2s ease-in-out;
 }
 
 .footer a:hover {
-    color: #fff;
+    color: var(--site-heading);
 }
 
 /* Credit link on its own line, right-aligned */
